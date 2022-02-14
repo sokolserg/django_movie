@@ -19,7 +19,7 @@ class Category(models.Model):
 class Actor(models.Model):
     """Актёры и режиссёры"""
     name = models.CharField('Имя', max_length=100)
-    age = models.PositiveSmallIntegerField('Имя')
+    age = models.PositiveSmallIntegerField('Возраст')
     description = models.TextField('Описание')
     image = models.ImageField('Изображение', upload_to='actors/')
 
@@ -59,7 +59,7 @@ class Movie(models.Model):
     world_premiere = models.DateField('Премьера в мире', default=date.today)
     budget = models.PositiveSmallIntegerField('Бюджет', default=0, help_text='указывать сумму в долларах')
     fees_in_usa = models.PositiveSmallIntegerField('Сборы в США', default=0, help_text='указывать сумму в долларах')
-    fees_in_world = models.PositiveSmallIntegerField('Сборы в США', default=0, help_text='указывать сумму в долларах')
+    fees_in_world = models.PositiveSmallIntegerField('Сборы в Мире', default=0, help_text='указывать сумму в долларах')
     category = models.ForeignKey(Category, verbose_name='Категория', on_delete=models.SET_NULL, null=True)
     url = models.SlugField(max_length=160, unique=True)
     draft = models.BooleanField('Черновик', default=False)
